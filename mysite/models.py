@@ -1,7 +1,9 @@
 from django.db import models
 
 class set_info(models.Model):
-	set_name = models.CharField(max_length=30)
+	set_name 	= models.CharField(max_length=30)
+	set_company = models.CharField(max_length=30)
+	set_manager = models.CharField(max_length=30)
 
 class device_info(models.Model):
 	device_name = models.CharField(max_length=30)
