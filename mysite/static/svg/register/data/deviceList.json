@@ -1,0 +1,56 @@
+[
+    {
+	"id":       "set1",
+        "name":       "Gluesys_Set1",
+        "company": "Gluesys",
+        "place":   "5F, Panax R&D Center",
+        "manager":     "user1",
+        "distribution": "2011/04/25",
+        "access": "2017/12/26",
+        "edgecode": "ABCDE-1000-1111-1111",
+        "edgeip": "192.168.0.1",
+        "tel": "+82-70-8787-5370",
+        "status": "online"
+    },
+    {
+	"id":       "set2",
+        "name":       "SoNos_Set2",
+        "company": "VINCIs",
+        "place": "Unter den Linden 14, 10117 Berlin, Germany",
+        "manager": "user1, user2",
+        "distribution": "2017/12/26",
+        "access": "2017/12/26",
+        "edgecode": "ABCDE-1000-1111-1111",
+        "edgeip": "192.168.0.1",
+        "tel": "+49-80-1475-9639",
+        "status": "online"
+
+    },
+    {
+	"id":       "set3",
+        "name":       "HouseOfMarley_Set3",
+        "company": "AnyangUniv",
+        "place": "5F, Panax R&D Center",
+        "manager": "user3, user5",
+        "distribution": "2017/12/26",
+        "access": "2017/12/26",
+        "edgecode": "ABCDE-1000-1111-1111",
+        "edgeip": "192.168.0.1",
+        "tel": "+82-70-8787-5370",
+        "status": "offline"
+    },
+    {
+     "id": "set99 - template",
+         "name": "set99 - template",
+         "company": "",
+         "place": "",
+         "manager": "",
+         "distribution": "",
+         "access": "",
+         "edgecode": "",
+         "edgeip": "",
+         "tel": "",
+         "status": ""
+    }
+]
+

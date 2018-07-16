@@ -1,0 +1,16 @@
+/* Top layout */
+	nav.top-bg {background-color: rgba(134, 151, 169, 0.8) !important;color: #ffffff;}
+	.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {  background: #3a3633;}
+
+.periodBtnLayer { padding-top:15px;}
+.periodForm{
+    position: absolute;
+    background-color: #fff;
+    left: 50px;
+    padding: 1rem;
+    border: 1px solid #e7eaec;
+	display:none;
+	z-index:1000;
+}
+.timeRangeLayer{display:none;padding-top:15px;}
+.timeRangeLayer a {padding-left:10px;}

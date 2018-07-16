@@ -1,0 +1,58 @@
+/* main view */
+	/*.mainBg{background:url(../images/mainbg.jpg);}*/
+
+	@media (min-width: 992px) {
+		.mainBg .container{position: absolute;top: 50%;left: 50%;margin-left: -485px;margin-top: -110px; text-align:center;}
+	}
+	@media (min-width: 1200px) {
+		.mainBg .container{margin-left:-585px;}
+	}
+
+	.mainBg .widget {height:200px;text-align:center;}
+	.mainBg .widget h2{padding-top:20px;}
+	.mainBg .widget a{color:#fff;}
+
+/* Top navigation Common */
+	nav.top-bg a {color:#fff !important;}
+	nav.top-bg ul.select-menu a{color:#676a6c !important;}
+	.app-element strong {color:#fff; font-size:15px;}
+	@media (min-width: 768px) {
+		.navbar-brand{width:220px;text-align:center; padding:18px 15px;}
+		.navbar-minimalize{display:none;}
+	}
+	body.mini-navbar .app-element, 	body.body-small .navbar-brand {
+		display: none;
+	}
+.ibox {margin-bottom: 15px;}
+.table {margin-bottom:0}
+.table-bordered > tbody > tr > th{background-color: #F5F5F6;}
+
+.dataTables > thead > tr > th, .dataTables > tbody > tr > th, .dataTables > tfoot > tr > th, .dataTables > thead > tr > td, .dataTables > tbody > tr > td, .dataTables > tfoot > tr > td {padding:5px; vertical-align:middle}
+
+body.DTTT_Print {
+        background: #fff;
+    }
+    .DTTT_Print #page-wrapper {
+        margin: 0;
+        background:#fff;
+    }
+
+    button.DTTT_button, div.DTTT_button, a.DTTT_button {
+        border: 1px solid #e7eaec;
+        background: #fff;
+        color: #676a6c;
+        box-shadow: none;
+        padding: 6px 8px;
+    }
+    button.DTTT_button:hover, div.DTTT_button:hover, a.DTTT_button:hover {
+        border: 1px solid #d2d2d2;
+        background: #fff;
+        color: #676a6c;
+        box-shadow: none;
+        padding: 6px 8px;
+    }
+
+    .dataTables_filter label {
+        margin-right: 5px;
+
+    }

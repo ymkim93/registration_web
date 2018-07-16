@@ -1,0 +1,45 @@
+[
+	{
+		"id":"device_register",
+		"text":"Device Registration",
+		"icon" : "fa-cubes",
+		"children" :[
+				{
+					"id":"Set1", 
+					"text":"Gluesys_Set1"
+				},
+				{
+					"id":"Set2", 
+					"text":"SoNos_Set2"
+				},
+				{
+					"id":"Set3",
+					"text":"HouseOfMarley_Set3"
+				},
+				{
+					"id":"Set4",
+					"text":"Dummy"
+				}
+		]
+	},
+	{
+		"id" : "admin_register",
+		"text":"Admin Registration",
+		"icon" : "fa-user"
+	},
+	{
+		"id" : "customer_register",
+		"text":"Customer Registration",
+		"icon" : "fa-users"
+	},
+	{
+		"id" : "alarm_control",
+		"text":"Alarm Control(IFTTT)",
+		"icon" : "fa-bell"
+	},
+	{
+		"id" : "registration_log",
+		"text":"Registration Log",
+		"icon" : "fa-list-alt"
+	}
+]

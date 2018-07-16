@@ -1,0 +1,50 @@
+[
+  {
+    "id": "dashboard",
+    "text": "Dashboard",
+    "icon": "fa-newspaper-o"
+  },
+  {
+    "text": "System Matrix",
+    "icon": "fa-table",
+    "children": [
+      {
+        "id": "dashboard",
+        "text": "Main Dashboard"
+      },
+      {
+        "id": "gInsight",
+        "text": "G.InSight.Demo 0.1"
+      },
+
+      {
+        "id": "system_process",
+        "text": "test dummy"
+      },
+      {
+        "id": "system_userdefined",
+        "text": "test dummy"
+      }
+    ]
+  },
+  {
+    "id": "system_event",
+    "text": "System Event & Log",
+    "icon": "fa-list-alt"
+  },
+  {
+    "id": "analysis",
+    "text": "Analysis & Report",
+    "icon": "fa-edit"
+  },
+  {
+    "id": "custom",
+    "text": "custom",
+    "icon": "fa-plus"
+  },
+  {
+    "id": "mailGluesys",
+    "text": "Email System",
+    "icon": "fa-envelope"
+  }
+]

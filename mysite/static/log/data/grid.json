@@ -1,0 +1,42 @@
+[
+    {
+        "name":       "Tiger Nixon",
+        "position":   "System Architect",
+        "salary":     "$3,120",
+        "start_date": "2011/04/25",
+        "office":     "Edinburgh",
+        "extn":       "5421"
+    },
+    {
+        "name":       "<i class='fa fa-table'></i> Garrett Winters",
+        "position":   "Director",
+        "salary":     "$5,300",
+        "start_date": "2011/07/25",
+        "office":     "Edinburgh",
+        "extn":       "8422"
+    },
+    {
+        "name":       "abc Winters",
+        "position":   "Director",
+        "salary":     "$5,300",
+        "start_date": "2011/07/25",
+        "office":     "Hongkong",
+        "extn":       "8422"
+    },
+    {
+	"name": "Michael Bruce",
+	"position": "Javascript Developer",
+	"salary": "$183,000",
+	"start_date": "2011/06/27",
+	"office": "Singapore",
+	"extn": "5384"
+    },
+    {
+	"name": "Donna Snider",
+        "position": "Customer Support",
+        "salary": "$112,000",
+        "start_date": "2011/01/25",
+	"office": "New York",
+	"extn": "4226"
+    }
+]

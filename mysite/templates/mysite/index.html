@@ -1,0 +1,231 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main view</title>
+
+    <!--Big Data Background-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <style>
+        /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+        html, body {
+            background: #000;
+            margin: 0;
+        }
+        canvas {
+            position: absolute;
+        }
+
+        /*
+        SOCIAL STYLES APPEAR BELOW.
+        ALSO REMEMBER TO REFERENCE THE JS URL IN THE JS PAN SETTINGS: https://codepen.io/Saner-Nizni/pen/mPoOjg
+        */
+        /*
+                #social-container {
+                    opacity: 0.9;
+                    bottom: 5px;
+                    right: 5px;
+                }
+                */
+
+        #social-container p {
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        #social-container #social-links a {
+            font-size: 2.8rem;
+        }
+
+        /*
+                #social-message {
+                    font-size: 1.15rem;
+                }*/
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+    <!-- default css -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- inispinia css -->
+    <!--link href="css/animate.css" rel="stylesheet"-->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/gluesys.css' %}" rel="stylesheet">
+
+    <!-- default css -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- Data Tables -->
+    <link href="{% static 'plugins/dataTables/css/dataTables.bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'plugins/dataTables/css/dataTables.responsive.css' %}" rel="stylesheet">
+    <link href="{% static 'plugins/dataTables/css/dataTables.tableTools.min.css' %}" rel="stylesheet">
+
+    <!-- inispinia css -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/gluesys.css' %}" rel="stylesheet">
+    <link href="{% static 'css/layout.css' %}" rel="stylesheet">
+    <!-- Mainly scripts -->
+    <script src="{% static 'js/jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+    <!-- Custom and plugin javascript -->
+    <script src="{% static 'js/inspinia.js' %}"></script>
+    <script src="{% static 'plugins/pace/pace.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</head>
+<!--
+<header class='fixed-nav skin-1'>-->
+<!-- <header class='fixed-nav skin-1' style="background-color:transparent"> -->
+<header class='fixed-nav' style="background-color:transparent">
+    <div id="wrapper">
+        <!-- top navigation -->
+        <div class="row border-bottom">
+            <nav class="navbar navbar-fixed-top top-bg" role="navigation" style="margin-bottom: 0">
+
+                <div class="navbar-header">
+                    <!--<a class="navbar-brand" href="./index.html">home</a>-->
+
+                     <!-- Directly this code will lead you to the local url server not to file in your directory -->
+                    <a class="navbar-brand" href="{% url 'index' %}"><img src=" {% static 'image/gLogo06.png' %}" width="100%" style="filter:alpha(style=2, opacity=100, finishopacity=0); position:relative; top:7px;"></a>
+
+                    <!-- Original code of html -->
+                     <!-- this link will be used when you use only node js -->
+                <!--<a class="navbar-brand" href="./index.html"><img src="./images/G_insight_logo_02.svg" width="200%" style="filter:alpha(style=2, opacity=100, finishopacity=0)"></a>-->
+
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i>
+                    </a>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        Super Admin is Logged in
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                            <i class="fa fa-globe"></i>
+                        </a>
+                        <ul class="dropdown-menu select-menu">
+                            <li><a href='#'><img src="{% static 'images/kr.png' %}"> 한국어</a></li>
+                            <li><a href='#'><img src="{% static 'images/us.png' %}"> English</a></li>
+                        </ul>
+                    </li>
+                    <!--
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                            <i class="fa fa-th"></i>
+                        </a>
+
+                        <ul class="dropdown-menu select-menu">
+                            <li><a href='../register/'> Registration & Control</a></li>
+                            <li><a href='../system/'> System InSight</a></li>
+                            <li><a href='#'> Contents Management</a></li>
+                        </ul>
+
+                    </li>
+                    -->
+                    <li>
+                        <a href="./login.html" class='logout'>
+                            <i class="fa fa-sign-out">Log out</i>
+                        </a>
+                    </li>
+                    <li class="clock">
+                        <script src="{% static 'js/realtime.js' %}"></script>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+    </div>
+</header>
+<!--
+<header>
+    <div class="headline">
+
+        <div>
+        </div>
+
+        <div id="wrapper">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-fixed-top top-bg" role="navigation" style="margin-bottom: 0">
+
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                <i class="fa fa-globe"></i>
+                            </a>
+                            <ul class="dropdown-menu select-menu">
+                                <li><a href='#'><img src="../images/kr.png"> 한국어</a></li>
+                                <li><a href='#'><img src="../images/us.png"> English</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                <i class="fa fa-th"></i>
+                            </a>
+                            <ul class="dropdown-menu select-menu">
+                                <li><a href='../register/'> Registration & Control</a></li>
+                                <li><a href='../system/'> System InSight</a></li>
+                                <li><a href='#'> Contents Management</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class='logout'>
+                                <i class="fa fa-sign-out"></i> Log out
+                            </a>
+                        </li>
+
+                        <li class="clock">
+                            <script src="./js/realtime.js"></script>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+-->
+<body class='mainBg'>
+
+<!--for background-->
+<canvas></canvas>
+
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src='{% static 'js/mpoojg.js' %}'></script>
+
+<script src="{% static 'js/index.js' %}"></script>
+<!--For background-->
+
+
+<div class='container'>
+    <div class='col-md-3'>
+        <div class="widget lazur-bg p-xl">
+            <h2>
+				<a href="{% url 'reg_index' %}"><br>Registration</a>
+            </h2>
+        </div>
+    </div>
+    <div class='col-md-3'>
+        <div class="widget red-bg p-xl">
+            <h2>
+            </h2>
+        </div>
+    </div>
+    <div class='col-md-3'>
+        <div class="widget yellow-bg p-xl">
+            <h2>
+            </h2>
+        </div>
+    </div>
+    <div class='col-md-3'>
+        <div class="widget navy-bg p-xl">
+            <h2>
+                <a><br>Management</a>
+            </h2>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,398 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <style>
+            /*Register's top menu style*/
+            /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+            html, body {
+                /* Extra Styles */
+                background: #fff;
+                color: #425363;
+                font-family: avenir, 'segoe ui', sans-serif;
+            }
+
+            @keyframes move {
+                0% {
+                    background-position: 0 60%, 0 50%;
+                }
+                100% {
+                    background-position: 0 60%, 100% 50%;
+                }
+            }
+
+            .container_RC {
+                background-color: #263645;
+                background-image: url('http://bootscootin2pdx.com/network.svg'), radial-gradient(200px 500px at center, #ff8300 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0));
+                background-size: 125%, 50% 100%;
+                background-position: 0 60%, 0 100%;
+                animation: move 5s linear infinite;
+
+                /* Extra Styles */
+                height: 150px;
+                /*box-shadow: inset 0 0 25px rgba(0,0,0,.5);*/
+                border: 2px solid #263645;
+                border-right: 0;
+                border-left: 0;
+            }
+
+            /*Register's top menu style end*/
+        </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration & Control</title>
+
+    <!--device register-->
+    <!--MEAN CRUD Code js, css start-->
+    <!--  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+      <script src="controller/controller.js"></script> --> <!--set path later(on the ubuntu server)-->
+    <!--MEAN CRUD Code js, css end-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <!-- <script src="{%  static 'plugins/dataTables/jquery.dataTables.min.js' %}"></script> -->
+
+    <script>
+        $(document).ready(function () {
+            /* Init DataTables */
+            // var dataTable = $('#device_table').DataTable({
+            var dataTable = $('#set_device_table').DataTable({
+                bPaginate: false,
+                bFilter: false,
+                bInfo: false,
+                order: [[1, "asc"]], //default order
+                columns: [
+                    {data: 'id'},
+                    {data: 'name'},
+                    {data: 'company'},
+                    {data: 'place'},
+                    {data: 'manager'},
+                    {data: 'distribution'},
+                    {data: 'access'},
+                    {data: 'edgecode'},
+                    {data: 'edgeip'},
+                    {data: 'tel'},
+                    {data: 'status'}
+                ],
+                aoColumnDefs: [{
+                    aTargets: [0],
+                    bSortable: false,
+                    mRender: function (data, type, full) {
+                        return '<input type=\"checkbox\" value="' + data + '">';
+                    }
+                }]
+            });
+            $.getJSON("data/deviceList.json", function (data) {
+                dataTable.clear().rows.add(data).draw();
+            });
+
+            $('#tableViewBtn').click(function () {
+                //list view hide
+                /* $('#listView').css("display", "none");
+                 $('#listViewBtn').css("display", "");*/
+
+                //table view show
+                /*$('#tableView').css("display", "block");
+                $('#tableViewBtn').css("display", "none");*/
+
+                //addSet hide
+                $('#addSet').css("display", "none");
+            });
+
+            $('#listViewBtn').click(function () {
+                //list view show
+                $('#listView').css("display", "");
+                $('#listViewBtn').css("display", "");
+
+                //table view hide
+                /*
+                $('#tableView').css("display", "none");
+                $('#tableViewBtn').css("display", "");*/
+
+                //addSet hide
+                $('#addSet').css("display", "none");
+            });
+
+            $('#addSetBtn').click(function () {
+                //list view show
+                $('#listView').css("display", "none");
+
+                //table view hide
+                $('#tableView').css("display", "none");
+
+                $('#addSet').css("display", "block");
+            });
+
+        });
+    </script>
+    <style>
+        /* Set registration's css inspinia */
+        .b-r .control-label {
+            width: 100%;
+        }
+.info_box{
+	padding:10px;
+	margin:10px;
+}
+
+.info_box button{
+position:relative;
+padding:10px;
+left:78%;
+
+}
+
+    </style>
+    <!--device register-->
+
+    <!-- default css -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- Data Tables -->
+    <link href="{% static 'plugins/dataTables/css/dataTables.bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'plugins/dataTables/css/dataTables.responsive.css' %}" rel="stylesheet">
+    <link href="{% static 'plugins/dataTables/css/dataTables.tableTools.min.css' %}" rel="stylesheet">
+
+    <!-- inispinia css -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/gluesys.css' %}" rel="stylesheet">
+    <link href="{% static 'register/css/layout.css' %}" rel="stylesheet">
+
+    <!-- Mainly scripts -->
+    <script src="{% static 'js/jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+    <!-- Custom and plugin javascript -->
+    <script src="{% static 'js/inspinia.js' %}"></script>
+    <script src="{% static 'plugins/pace/pace.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</head>
+<!--
+<body class='fixed-nav skin-1 pace-done mini-navbar'>
+-->
+<body class="gray-bg">
+
+<div id="page-wrapper" class="gray-bg" style="margin:0; padding:0;" >
+    <!--
+    <div class="container_RC"></div>
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    -->
+
+    <div id='page-layout'>
+
+        <div class="row wrapper border-bottom peek-through-orange-bg page-heading" style="height:120px;">
+
+            <!--testing-->
+
+            <div class="col-lg-10">
+                <h2>Device Registration</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="active">
+                        <strong>Set list</strong>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-2">
+            </div>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row m-b-sm m-t-sm">
+                <div class="ibox">
+                    <div class="col-md-7">
+                        <div class="input-group">
+                            <input type="text" placeholder="Search" class="input-sm form-control"> <span
+                                class="input-group-btn">
+						<button type="button" class="btn btn-sm btn-primary"> Go!</button> </span>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <!-- <button type="button" data-action="add-device" class="btn btn-white btn-sm" ><i class="fa fa-plus"></i> Add</button> -->
+                        <button type="button" data-action="add-device" class="btn btn-white btn-sm" id="addSetBtn">
+                            <a href="#"
+                               class="fa fa-plus">
+                                Add</a></button>
+                        <button type="button" data-action="delete-device" class="btn btn-white btn-sm"><i
+                                class="fa fa-minus"></i> Delete
+                        </button>
+                        <button type="button" data-action="delete-device" class="btn btn-white btn-sm"><i
+                                class="fa fa-pencil"></i> Modify
+                        </button>
+                        <button type="button" class="btn btn-white btn-sm" id='listViewBtn'><i
+                                class="fa fa-list"></i> List view
+                        </button>
+                        <button type="button" class="btn btn-white btn-sm" id='tableViewBtn' style='display:none'><i
+                                class="fa fa-th"></i> Table view
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Set에 포함되는 장비 리스트 -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Device List</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="input-group">
+                                <input type="text" placeholder="Search" class="input-sm form-control"> <span
+                                    class="input-group-btn">
+									<button type="button" class="btn btn-sm btn-primary"> Go!</button> </span>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <button type="button" class="btn btn-white btn-sm" data-toggle="modal"
+                                    data-target="#myModal">
+                                <i class="fa fa-shopping-cart"></i>
+                                Add Device
+                            </button>
+                            <button type="button" data-action="delete-device" class="btn btn-white btn-sm"><i
+                                    class="fa fa-minus"></i> Delete
+                            </button>
+                            <button type="button" data-action="delete-device" class="btn btn-white btn-sm"><i
+                                    class="fa fa-pencil"></i> Modify
+                            </button>
+                            <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content animated bounceInRight">
+                                        <div class="modal-header">
+                                            <!--
+                                            <button type="button" data-action="delete-device" class="btn btn-white btn-sm"><i class="fa fa-minus"></i> Delete </button>
+                                            -->
+                                            <button type="button" class="close" data-dismiss="modal"><span
+                                                    aria-hidden="true">&times;</span><span
+                                                    class="sr-only">Close</span></button>
+                                            <i class="fa fa-laptop modal-icon"></i>
+                                            <h4 class="modal-title">New Device Registration</h4>
+                                            <small class="font-bold">Please fillout the new device's information.
+                                            </small>
+                                        </div>
+                                        <!--
+                                        <div class="modal-body">
+
+                                            <div class="form-group"><label>Device Name</label> <input type="text"
+                                                                                                       placeholder="Enter the Name of your Device"
+                                                                                                       class="form-control">
+                                            </div>
+
+                                            <div class="form-group"><label>Device Code</label>
+                                                <input type="text" class="form-control" data-mask="9999-9999-9999-9999" placeholder="ex) 9999-9999-9999-9999">
+                                            </div>
+                                            <div class="form-group"><label>Device IP</label>
+                                                <input type="text" class="form-control" data-mask="999.999.9.999" placeholder="ex) 192.168.1.213">
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form method="POST" class="post-form">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            </form>
+                                            <button type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
+                                        </div>
+                                        -->
+                                        <nav class="info_box">
+                                            <div class="device create">
+                                                <form method="POST" class="post-form">
+                                                    <div style="width:35%;"> {% csrf_token %} {{ form.as_p }} </div>
+                                                    <button type="submit" class=
+                                                            "save btn btn-primary">Save
+                                                    </button>
+                                                    <button type="button" class=
+                                                            "btn btn-white" data-dismiss="modal">Cancel
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <table class="table table-striped table-bordered table-hover dataTables"
+                               id="set_device_table">
+                            <thead>
+                            <tr>
+                                <th width='20' data-bSortable="false" class='no-sort'><input type='checkbox'
+                                                                                             value='all'
+                                                                                             id='allChk'></th>
+                                <th>Device Name</th>
+                                <th>Device Code</th>
+                                <th>IP</th>
+                                <th>Status</th>
+                                <th>Contents</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for dev in device_list %}
+                                <tr class="gradeX">
+                                    <td><input type='checkbox'></td>
+                                    <td>{{ dev.device_name }}</td>
+                                    <td>{{ dev.device_code }}</td>
+                                    <td>{{ dev.device_ip }}</td>
+                                    <td><span class="label label-success">Online</span></td>
+                                    <td class="center">
+                                        <button type="button" class="btn btn-xs btn-primary">상세보기</button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            <!--
+                            <tr class="gradeX">
+                                <td><input type='checkbox'></td>
+                                <td>Device1</td>
+                                <td>AAAA-BBBB-1111-0000</td>
+                                <td>192.162.3.3</td>
+                                <td><span class="label label-success">Online</span></td>
+                                <td class="center">
+                                    <button type="button" class="btn btn-xs btn-primary">상세보기</button>
+                                </td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td><input type='checkbox'></td>
+                                <td>Device2</td>
+                                <td>AAAA-BBBB-1111-0000</td>
+                                <td>192.162.3.3</td>
+                                <td><span class="label label-success">Online</span></td>
+                                <td class="center">
+                                    <button type="button" class="btn btn-xs btn-primary">상세보기</button>
+                                </td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td><input type='checkbox'></td>
+                                <td>Device3</td>
+                                <td>AAAA-BBBB-1111-0000</td>
+                                <td>192.162.3.3</td>
+                                <td><span class="label">Offline</span></td>
+                                <td class="center"></td>
+                            </tr
+                            -->
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>
+            COPYRIGHT(C)2014 Gluesys. All Rights Reserved
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
