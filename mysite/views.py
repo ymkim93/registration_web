@@ -1,6 +1,6 @@
-from django.shortcuts import render
-from .models import device_info
-from .forms import PostForm
+from django.shortcuts import render, redirect
+from .models import set_info
+from .forms import SetinfoForm
 
 # Create your views here.
 
@@ -8,18 +8,27 @@ def index(request):
 	return render(request, 'mysite/index.html', {})
 
 def reg_index(request):
-	device_list = device_info.objects.all()
+	
+	set_list = set_info.objects.all()
+
+	return render(request, 'mysite/register/index.html', {'set_list' : set_list})
+
+def reg_create(request):
 	
 	if request.method == "POST":
-		form = PostForm(request.POST)
+		form = SetinfoForm(request.POST)
 		if form.is_valid():
 			form.save()
-		return redirect('/main/register')
+		return redirect('/register')
 	else:
-		form = PostForm()
-		return render(request, 'mysite/register/index.html', {'form' : form, 'device_list' : device_list})
+		form = SetinfoForm()
+
+	return render(request, 'mysite/register/create.html', {
+		'form' : form
+	})
 
 def reg_detail(request):
+
 	return render(request, 'mysite/register/set_detail.html', {
 
 	})

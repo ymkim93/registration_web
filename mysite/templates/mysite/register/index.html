@@ -201,10 +201,10 @@
                         </div>
                         <div class="col-md-5">
                             <!-- <button type="button" data-action="add-device" class="btn btn-white btn-sm" ><i class="fa fa-plus"></i> Add</button> -->
-                            <button type="button" data-action="add-device" class="btn btn-white btn-sm" id="addSetBtn"><a href="#"
+                            <button type="button" data-action="add-device" class="btn btn-white btn-sm" id="addSetBtn"><a href="{% url 'reg_create' %}"
                                                                                                                           class="fa fa-plus">
                                 Add</a></button>
-                            <button type="button" data-action="delete-device" class="btn btn-white btn-sm"><i
+                                <button type="button" data-action="delete-device" class="btn btn-white btn-sm"><i
                                     class="fa fa-minus"></i> Delete
                             </button>
                             <button type="button" data-action="delete-device" class="btn btn-white btn-sm"><i
@@ -230,27 +230,25 @@
                                                                                              id='allChk'></th>
                                 <th>Set Name</th>
                                 <th>Company</th>
-                                <th>Set Place</th>
                                 <th>Manager</th>
-                                <th>Edge Code</th>
-                                <th>Edge IP</th>
-                                <th>Tel</th>
                                 <th>Detail</th>
                             </tr>
+
                             </thead>
-							<tbody>
-								<td width='20' data-bSortable="false" class='no-sort'><input type='checkbox' value='all'
-                                                                                             id='allChk'></td>
-								<td>Testing</td>
-								<td>Gluesys</td>
-								<td>Pyungchon</td>
-								<td>User1, User2</td>
-								<td>AAAA-EEEE-3333-CCCC-5555</td>
-								<td>192.168.2.145</td>
-								<td>010-3562-6200</td>
-								<td class="center">
-                                    <a href="{% url 'reg_detail' %}"><button type="button" class="btn btn-xs btn-primary">상세보기</button><a></>
-						</tbody>
+						    <tbody>                                
+                                {% for set in set_list %}
+                                    <tr class="gradeX">
+                                        <td width='20' data-bSortable="false" class='no-sort'><input type='checkbox' value='all'id='allChk'></td>
+                                        <td>{{ set.set_name }}</td>
+                                        <td>{{ set.set_company }}</td>
+                                        <td>{{ set.set_manager }}</td>
+                                        <td class="center">
+                                            <a href="{% url 'reg_detail' %}"><button type="button" class="btn btn-xs btn-primary">상세보기</button></a>
+                                            <a href="{% url 'reg_detail' %}"><button type="button" class="btn btn-xs btn-danger">삭제</button></a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+						    </tbody>
                         </table>
                     </div>
                 </div>
@@ -266,11 +264,7 @@
                         </div>
                     </div>
                 </div>
-
-
         </div>
-
-
 
         <div class="footer">
             <div>
