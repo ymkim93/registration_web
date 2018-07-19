@@ -1,17 +1,22 @@
-from django.shortcuts import render, redirect
-from .models import set_info
+from django.shortcuts import get_object_or_404, render, redirect
+from .models import Setinfo, Deviceinfo
 from .forms import SetinfoForm
 
 # Create your views here.
 
 def index(request):
-	return render(request, 'mysite/index.html', {})
+
+	return render(request, 'mysite/index.html', {
+
+	})
 
 def reg_index(request):
 	
-	set_list = set_info.objects.all()
+	set_list = Setinfo.objects.all()
 
-	return render(request, 'mysite/register/index.html', {'set_list' : set_list})
+	return render(request, 'mysite/register/index.html', {
+		'set_list': set_list,
+	})
 
 def reg_create(request):
 	
@@ -24,11 +29,17 @@ def reg_create(request):
 		form = SetinfoForm()
 
 	return render(request, 'mysite/register/create.html', {
-		'form' : form
+		'form': form,
 	})
 
-def reg_detail(request):
+def reg_detail(request, pk):
+
+	set = get_object_or_404(Setinfo, pk=pk)
+	
+	device_list = Deviceinfo.objects.all()
+	device_list = device_list.filter(set_number=pk)
 
 	return render(request, 'mysite/register/set_detail.html', {
-
+		'set': set,
+		'device_list': device_list,
 	})

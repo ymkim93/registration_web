@@ -43,7 +43,7 @@
                 <!--<a class="navbar-brand" href="./index.html"><img src="./images/G_insight_logo_02.svg" width="200%" style="filter:alpha(style=2, opacity=100, finishopacity=0)"></a>-->
 
                 <!-- This link will be used when you use Python Django also -->
-                <a class="navbar-brand" href="http://192.168.2.249:8001/main/"><img src="{% static 'image/gLogo06.png' %}" width="100%" style="filter:alpha(style=2, opacity=100, finishopacity=0); position:relative; top:7px;"></a>
+                <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'image/gLogo06.png' %}" width="100%" style="filter:alpha(style=2, opacity=100, finishopacity=0); position:relative; top:7px;"></a>
                 <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
             </div>
             <ul class="nav navbar-top-links navbar-right">
@@ -74,32 +74,8 @@
             </ul>
         </nav>
     </div>
-    <!-- left navigation -->
-    <!--
-    <nav class="navbar-default navbar-static-side" role="navigation">
-        <div class="sidebar-collapse">
-            <ul class="nav" id="side-menu">
-                <li class="nav-header">
-                    <div class="app-element">
-                        <strong class="font-bold">Registration & Control</strong>
-                    </div>
-                    <div class="logo-element">
-                        IN+
-                    </div>
 
-                </li>
-            </ul>
-
-        </div>
-    </nav>
--->
     <div id="page-wrapper" class="gray-bg" style="position:absolute; left:-220px; width:100%;">
-        <!--
-        <div class="container_RC"></div>
-
-        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-        -->
-
         <div id='page-layout'>
             <body>
             <div class="row wrapper border-bottom peek-through-orange-bg page-heading">
@@ -131,7 +107,7 @@
                                 <table class="table table-bordered">
                                     <tr>
                                         <th>세트 이름</th>
-                                        <td>Set1</td>
+                                        <td>{{ set.set_name }}</td>
                                         <th>배포일</th>
                                         <td>2017.05.01 12:00:00</td>
                                     </tr>
@@ -195,47 +171,26 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr class="gradeX">
-                                        <td><input type='checkbox'></td>
-                                        <td>Device1</td>
-                                        <td>AAAA-BBBB-1111-0000</td>
-                                        <td>192.162.3.3</td>
-                                        <td><span class="label label-success">Online</span></td>
-                                        <td class="center">
-                                            <button type="button" class="btn btn-xs btn-primary">상세보기</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeX">
-                                        <td><input type='checkbox'></td>
-                                        <td>Device2</td>
-                                        <td>AAAA-BBBB-1111-0000</td>
-                                        <td>192.162.3.3</td>
-                                        <td><span class="label label-success">Online</span></td>
-                                        <td class="center">
-                                            <button type="button" class="btn btn-xs btn-primary">상세보기</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeX">
-                                        <td><input type='checkbox'></td>
-                                        <td>Device3</td>
-                                        <td>AAAA-BBBB-1111-0000</td>
-                                        <td>192.162.3.3</td>
-                                        <td><span class="label">Offline</span></td>
-                                        <td class="center"></td>
-                                    </tr>
+                                        {% for dev in device_list %}
+                                            <tr class="gradeX">
+                                                <td><input type='checkbox'></td>
+                                                <td>{{ dev.device_name }}</td>
+                                                <td>{{ dev.device_code }}</td>
+                                                <td>{{ dev.set_number }}</td>
+                                                <td><span class="label label-success">Online</span></td>
+                                                <td class="center">
+                                                    <button type="button" class="btn btn-xs btn-primary">상세보기</button>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
                                     </tbody>
                                 </table>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div
-
-
         </div>
-
-
 
         <div class="footer">
             <div>
